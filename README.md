@@ -9,7 +9,7 @@ The intent of this analysis is to assist Louise in evaluating how successful and
 # Analysis and Challenges
 
 ## Analysis of Outcomes Based on Launch Date
- 
+![Line chart displaying Theater_Outcomes_Based on Launch Date](https://user-images.githubusercontent.com/90368828/134102309-12a1f0a0-a504-4b85-bda3-8617d04946ca.png)
 
 When looking at the outcomes of theater campaigns based on the campaign launch date between the years of 2009 and 2017, all three outcomes follow a predictable pattern that is in line with social occurrences, events and holidays that occur throughout the year.
 
@@ -33,7 +33,8 @@ Finally, the canceled line has a straightforward explanation due to fact that ca
 
 
 ## Analysis of Outcomes Based on Goals
- 
+ ![Line chart showing Outcomes_Based on_Goals for the 'play's subcategory](https://user-images.githubusercontent.com/90368828/134102388-7c2cf5d3-cb08-4464-b7e6-7f29838fc505.png)
+
 
 The outcome of play-type performances in relation to goal amounts portrays an interesting inverse relationship between the percentage successful and percentage failed chart-lines.
 
@@ -54,34 +55,34 @@ Although I approached it with a trial-and-error style, I took a moment to reflec
 
 The only other challenge I stumbled upon was with the ‘=COUNTIFS(‘ function for the number successful, number failed, and number canceled columns. Just like ‘Theater Outcomes Based on Launch Date’ section, I was so close to having all the correct filters in place to get the correct output for each outcome, but I was not quite there yet. Using the $1,000 to $4,999 goal range and the ‘successful’ outcome as an example, my initial count-if function for the outcome is shown below:
 
-=COUNTIFS(Kickstarter!$D:$D,">=1000",Kickstarter!$F:$F,"successful",Kickstarter!$D:$D,"<=4999")
+**=COUNTIFS(Kickstarter!$D:$D,">=1000",Kickstarter!$F:$F,"successful",Kickstarter!$D:$D,"<=4999")**
 
 The obvious mistake here is that I forgot to filter by the subcategory type in column O. My thought process for this was that, if the sheet which the data is referring to is filtered by that specific subcategory, the numbers outputted would be reflective of what has been filtered. But this was not the case because the line chart that was produced with this initial function line was nothing close to the chart that was shown as the solution within the module. From here, my next course of action was messing around with the filter in column O to see if it would change the outputted amount, which it did not.
 
 This is when I realized that my initial theory was incorrect, and took a long, hard look at the function and came to the revelation I would need to include an additional command to filter out the results. By reviewing the function repeatedly, it helped me understand what the function is a form of a conditional statement that has parameters set by yourself to produce the results. At this point, I was able to formulate this snippet to be added at the end of the function:
 
-Kickstarter!$O:$O, "plays"
+**Kickstarter!$O:$O, "plays"**
 
 With this additional filter created, the entire function for the example above looked like this:
 
-=COUNTIFS(Kickstarter!$D:$D,">=1000",Kickstarter!$F:$F,"successful",Kickstarter!$D:$D,"<=4999",Kickstarter!$O:$O, "plays")
+**=COUNTIFS(Kickstarter!$D:$D,">=1000",Kickstarter!$F:$F,"successful",Kickstarter!$D:$D,"<=4999",Kickstarter!$O:$O, "plays")**
 
 After adding this additional piece to all the different goal ranges for each respective outcome, I started noticing that the count of the outcomes was changing, which inherently changed the total projects amount, and all the percentages that followed. Finally at this point, the outcomes based on goal chart reflected the exact pattern that the template chart exemplified for the challenge.
 
 ## Results
 
-- What are two conclusions you can draw about the Outcomes based on Launch Date?
+- **What are two conclusions you can draw about the Outcomes based on Launch Date?**
 The first conclusion that can be seen with the Outcomes Based on Launch Date is that there is a correlation between when the launch date occurs, and how successful a theater campaign can be due to the social occurrences, events and holidays taking place in specific time periods. For instance, there were a lower number of successful campaigns in the months of November & December due to the holiday season, when families are spending time with relatives and celebrating at home. Another conclusion that can be drawn from this analysis, is that as more campaigns succeed, the number of failed campaigns increase as well. This can be seen in the month of May where there is spike in failed campaigns which correlates with the large increase in successful campaigns, which is also seen sporadically in February and October.
 
-- What can you conclude about the Outcomes based on Goals?
+- **What can you conclude about the Outcomes based on Goals?**
 The Outcomes Based on Goals for the ‘plays’ subcategory portrays an inverse relationship between the success and failure rates for the plays which is exemplified in the line chart created for the analysis. This inverse relationship is influenced by the funding goal amounts, as the amount needed increases, the failure rate increases due to the higher amounts. An exception to this theory is exemplified between the amounts of $35,000 and $44,999 where the success rate switches momentarily with the failure rate due to a smaller population size of total projects for this particular funding range.
 
-- What are some limitations of this dataset?
+- **What are some limitations of this dataset?**
 One possible limitation of the dataset is that it does not take into consideration the average age of the theatergoers attending Louise’s performances. An additional piece of data like this would be beneficial especially for the ‘Theater Outcomes Based on Launch Date’ analysis because it could possibly further corroborate the stated theory regarding the outcomes based on launch date. For example, during the earlier summer months, it could be inferred that the average age would be lower due to more children attending these shows because of summer break. Then, for the later summer months, the average age could possibly go up due to more adults attending the shows. But, let’s say that the average age of theatergoers is a higher amount all throughout the year, it would imply that Louise’s performances are geared for mature viewers which would put the previously purported theory in question, and warrant a new theory to be sought for.
 
   Another limitation of the dataset is a factor that is already included within the set, which is the country of where the campaign took place. After having completed both analysis’, I realized that the country was not taken into consideration neither for ‘Theater Outcomes Based on Launch Date’ nor ‘Outcomes Based on Goals’. Using the theater outcomes as an example, including the country could be beneficial because it provides additional support for my theory regarding outcomes based on launch date. For example, filtering outcomes based only in US could provide further insight whether my theory is true or not.
 
-- What are some other possible tables and/or graphs that we could create?
+- **What are some other possible tables and/or graphs that we could create?**
 A possible alternative chart to use for the ‘Theater Outcomes Based on Launch Date’ that I can think of would be using a pie chart to portray the different theater outcomes. Although a bit less analytical than utilizing the line chart, it could provide a simpler portrayal of the chosen dataset. Another chart that could provide a different perspective of the theater outcomes would be a stacked bar chart. This would simplify the previously used line chart, and show how many successful, failed, and canceled campaigns occurred and how much it comprises of the total amount of campaigns.
 
 
